@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto mt-24">
+  <div class="container p-1 mx-auto my-16">
     <swiper
       effect="Creative"
       :pagination="true"

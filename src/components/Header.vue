@@ -2,12 +2,12 @@
   <!-- glass -->
   <div
     ref="glass"
-    class="absolute left-0 right-0 bottom-0 top-10 bg-firstOrange opacity-50 hidden -z-10 md:hidden blur-xl"
+    class="absolute bottom-0 left-0 right-0 z-10 hidden opacity-50 top-10 bg-firstOrange md:hidden blur-xl"
   ></div>
 
   <!-- desktop menu -->
   <div
-    class="items-center justify-between container mx-auto bg-white rounded shadow p-2 md:flex hidden"
+    class="container items-center justify-between hidden p-2 mx-auto bg-white rounded shadow md:flex"
   >
     <div class="flex items-center gap-2 sm:gap-6">
       <div><img src="../assets/Logo.svg" alt="" /></div>
@@ -104,8 +104,8 @@
         <p>تماس با ما</p>
       </div>
     </div>
-    <div class="flex items-center gap-0 flex-row-reverse">
-      <div class="bg-firstOrange rounded-full p-2">
+    <div class="flex flex-row-reverse items-center gap-0">
+      <div class="p-2 rounded-full bg-firstOrange">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-user"
@@ -166,7 +166,7 @@
 
   <!-- mobile menu -->
   <div
-    class="flex md:hidden items-center justify-between container mx-auto px-8 py-2"
+    class="container flex items-center justify-between px-8 py-2 mx-auto bg-white md:hidden"
   >
     <div
       @click="

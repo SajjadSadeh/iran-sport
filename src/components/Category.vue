@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <h1 class="mt-12 mb-8 text-center text-xl font-bold">
-      محصولات ایران اسپرت
-    </h1>
+  <div class="container mx-auto my-16">
+    <h1 class="mb-8 text-xl font-bold text-center">محصولات ایران اسپرت</h1>
     <swiper
       :slidesPerView="3"
       :spaceBetween="10"
@@ -13,13 +11,13 @@
       <swiper-slide v-for="item in categoryItems" :key="item.name">
         <div
           style="
-            width: clamp(70px, 20vw, 200px);
-            height: clamp(70px, 20vw, 200px);
+            width: clamp(70px, 20vw, 150px);
+            height: clamp(70px, 20vw, 150px);
           "
-          class="shadow rounded-full flex flex-col items-center justify-center p-5 text-center mb-8"
+          class="flex flex-col items-center justify-center p-5 mb-8 text-center rounded-full shadow"
         >
           <div v-html="item.svg"></div>
-          <p>{{ item.name }}</p>
+          <p class="hidden sm:block">{{ item.name }}</p>
         </div>
       </swiper-slide>
     </swiper>

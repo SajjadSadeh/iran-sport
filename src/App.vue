@@ -1,25 +1,19 @@
 <template>
-  <div class="mb-6">
+  <div class="fixed top-0 left-0 right-0 z-20">
     <Header />
   </div>
   <div>
-    <Slider />
+    <router-view></router-view>
   </div>
   <div>
-    <Category />
+    <Footer />
   </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue";
-import Slider from "./components/slider/Slider.vue";
-import Category from "./components/Category.vue";
+import Footer from "./components/Footer.vue";
 export default {
-  name: "App",
-  components: {
-    Header,
-    Slider,
-    Category,
-  },
+  components: { Header, Footer },
 };
 </script>

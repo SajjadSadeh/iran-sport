@@ -5,7 +5,10 @@ export default {
     extend: {
       colors: {
         firstOrange: "#FFBD5C",
+        secondOrange: "#FF9800",
         firstGray: "#2E353C",
+        SecondGray: "#94A0AE",
+        thirdGray: "#eee",
       },
     },
   },
