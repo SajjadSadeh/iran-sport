@@ -3,7 +3,7 @@
     style="width: clamp(300px, 20vw, 330px)"
     class="flex flex-col items-center justify-center gap-2 px-4 py-2 mb-10 text-center bg-white rounded shadow"
   >
-    <img class="w-6/7" src="../assets/shoe1.png" alt="" />
+    <img class="w-6/7" :src="data.Shoe_Main_Image" alt="" />
     <router-link :to="'/product/' + data.ID">
       <p class="text-lg font-semibold text-firstGray">
         {{ data.Shoe_Name }}

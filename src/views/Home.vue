@@ -15,7 +15,7 @@
     <Brands />
   </div>
   <div>
-    <Article />
+    <Article :articles="articlesStore.articleForHome" />
   </div>
   <div>
     <Representation />
@@ -30,12 +30,19 @@ import Blog from ".././components/blog/Blog.vue";
 import Brands from ".././components/Brands.vue";
 import Article from "../components/article/Article.vue";
 import Representation from "../components/Representation.vue";
+
+import { useArticlesStore } from "../stores/ArticlesStore";
 export default {
   name: "App",
   data() {
-    return {};
+    return {
+      articlesStore: useArticlesStore(),
+    };
   },
-  mounted() {},
+  created() {
+    this.articlesStore.fetchArticles();
+    window.scrollTo(0, 0);
+  },
   components: {
     Slider,
     Category,

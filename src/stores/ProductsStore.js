@@ -13,10 +13,10 @@ export const useProductsStore = defineStore("productsStore", {
   },
   actions: {
     async fetchProducts() {
-      await fetch("../../db.json")
+      await fetch("http://localhost:3000/products")
         .then((res) => res.json())
         .then((data) => {
-          this.products = data.products;
+          this.products = data;
         });
     },
   },

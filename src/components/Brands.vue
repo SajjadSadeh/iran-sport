@@ -19,11 +19,11 @@ export default {
   data() {
     return {
       brandLogos: [
-        "src/assets/brands images/brand-image (1).png",
-        "src/assets/brands images/brand-image (2).png",
-        "src/assets/brands images/brand-image (3).png",
-        "src/assets/brands images/brand-image (4).png",
-        "src/assets/brands images/brand-image (5).png",
+        "https://sajjad.storage.iran.liara.space/iran-sport/brand-images/brand-image%20%281%29.png",
+        "https://sajjad.storage.iran.liara.space/iran-sport/brand-images/brand-image%20%282%29.png",
+        "https://sajjad.storage.iran.liara.space/iran-sport/brand-images/brand-image%20%283%29.png",
+        "https://sajjad.storage.iran.liara.space/iran-sport/brand-images/brand-image%20%284%29.png",
+        "https://sajjad.storage.iran.liara.space/iran-sport/brand-images/brand-image%20%285%29.png",
       ],
     };
   },

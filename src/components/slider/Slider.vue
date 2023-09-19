@@ -6,12 +6,9 @@
       :modules="modules"
       class="mySwiper"
     >
-      <template v-for="i in [1, 2, 3, 4]" :key="i">
+      <template v-for="item in sliderStore.slider" :key="item.id">
         <swiper-slide>
-          <SliderItem
-            :imageSrc="`src/assets/slider${i}.png`"
-            :sliderNumber="i"
-          />
+          <SliderItem :data="item" />
         </swiper-slide>
       </template>
     </swiper>
@@ -28,17 +25,21 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Pagination } from "swiper/modules";
-
+import { useSliderStore } from "../../stores/SlidersStore";
 export default {
+  data() {
+    return {
+      sliderStore: useSliderStore(),
+      modules: [Pagination],
+    };
+  },
+  created() {
+    this.sliderStore.fetchSlider();
+  },
   components: {
     Swiper,
     SwiperSlide,
     SliderItem,
-  },
-  setup() {
-    return {
-      modules: [Pagination],
-    };
   },
 };
 </script>

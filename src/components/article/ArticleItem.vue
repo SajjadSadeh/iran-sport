@@ -4,11 +4,7 @@
     class="flex flex-col gap-3 m-1 bg-white rounded shadow text-firstGray"
   >
     <div class="w-full">
-      <img
-        :src="`src/assets/article-images/article-image (${data.id}).png`"
-        alt=""
-        class="w-full"
-      />
+      <img :src="data.imageSrc" alt="" class="w-full" />
     </div>
     <div class="flex flex-col gap-3 px-4 py-2">
       <h1 class="text-xl font-bold">{{ data.title }}</h1>

@@ -1,15 +1,14 @@
 <template>
   <div
     id="one"
-    class="text-white p-4 flex"
-    :class="{ 'justify-end': sliderNumber === 3 }"
+    class="flex p-4 text-white"
+    :class="{ 'justify-end': data.position === 'left' }"
   >
-    <img class="inset-0 absolute -z-10 h-full w-full" :src="imageSrc" />
+    <img class="absolute inset-0 w-full h-full -z-10" :src="data.imageSrc" />
     <div class="w-1/2 md:w-1/3 sm:mt-[5%] flex flex-col items-start gap-4">
-      <h1 class="sm:text-2xl text-md font-bold">فروشگاه ایران اسپرت</h1>
-      <p class="font-light hidden sm:block">
-        لورم ایپسوم متن ساختگی با تولید سادگـــــــی نامفهوم از صنعت چاپ و با
-        استفاده از طراحان گرافیک است .
+      <h1 class="font-bold sm:text-2xl text-md">{{ data.title }}</h1>
+      <p class="hidden font-light sm:block">
+        {{ data.text }}
       </p>
       <button
         class="border-firstOrange border-[1px] py-2 px-4 text-firstOrange border-solid rounded flex gap-1"
@@ -46,7 +45,7 @@ export default {
   data() {
     return {};
   },
-  props: ["imageSrc", "sliderNumber"],
+  props: ["data"],
 };
 </script>
 <style scoped>

@@ -9,6 +9,7 @@ export default {
         firstGray: "#2E353C",
         SecondGray: "#94A0AE",
         thirdGray: "#eee",
+        blueGray: "#DBE6F2",
       },
     },
   },

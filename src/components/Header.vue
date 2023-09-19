@@ -10,9 +10,11 @@
     class="container items-center justify-between hidden p-2 mx-auto bg-white rounded shadow md:flex"
   >
     <div class="flex items-center gap-2 sm:gap-6">
-      <div><img src="../assets/Logo.svg" alt="" /></div>
+      <router-link :to="{ name: 'Home' }">
+        <div><img src="../assets/Logo.svg" alt="" /></div>
+      </router-link>
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 text-sm font-semibold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-category-2"
@@ -34,7 +36,7 @@
         <p>دسته بندی</p>
       </div>
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 text-sm font-semibold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-message-question"
@@ -61,7 +63,7 @@
         <p>سوالات متداول</p>
       </div>
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 text-sm font-semibold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-square-rounded-check"
@@ -83,7 +85,7 @@
         <p>درباره ما</p>
       </div>
 
-      <div class="flex items-center gap-2">
+      <div class="flex items-center gap-2 text-sm font-semibold">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-phone"
@@ -103,7 +105,33 @@
         </svg>
         <p>تماس با ما</p>
       </div>
+      <router-link :to="{ name: 'Articles' }">
+        <div class="flex items-center gap-2 text-sm font-semibold">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-news"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11"
+            ></path>
+            <path d="M8 8l4 0"></path>
+            <path d="M8 12l4 0"></path>
+            <path d="M8 16l4 0"></path>
+          </svg>
+          <p>وبلاگ</p>
+        </div>
+      </router-link>
     </div>
+
     <div class="flex flex-row-reverse items-center gap-0">
       <div class="p-2 rounded-full bg-firstOrange">
         <svg
@@ -192,6 +220,7 @@
         <path d="M4 18l16 0"></path>
       </svg>
     </div>
+
     <div class="hidden" ref="menuItems">
       <div
         class="flex bg-white gap-2 rounded-xl rounded-tr-none rounded-br-none z-10 items-start absolute top-10 right-20 shadow-xl py-3 px-2 font-light w-[200px] flex-col text-firstGray"
@@ -292,15 +321,51 @@
           </svg>
           <p>تماس با ما</p>
         </div>
+
+        <router-link :to="{ name: 'Articles' }">
+          <div class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-news"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path
+                d="M16 6h3a1 1 0 0 1 1 1v11a2 2 0 0 1 -4 0v-13a1 1 0 0 0 -1 -1h-10a1 1 0 0 0 -1 1v12a3 3 0 0 0 3 3h11"
+              ></path>
+              <path d="M8 8l4 0"></path>
+              <path d="M8 12l4 0"></path>
+              <path d="M8 16l4 0"></path>
+            </svg>
+            <p>وبلاگ</p>
+          </div>
+        </router-link>
       </div>
     </div>
 
-    <div>
-      <img src="../assets/Logo.svg" alt="" />
-    </div>
+    <router-link :to="{ name: 'Home' }">
+      <div>
+        <img src="../assets/Logo.svg" alt="" />
+      </div>
+    </router-link>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "Header",
+  data() {
+    return {
+      u: this.$route,
+    };
+  },
+  watch: {},
+};
 </script>

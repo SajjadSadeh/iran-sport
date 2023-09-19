@@ -3,10 +3,9 @@
     class="flex items-end w-3/4 min-[500px]:w-auto rounded justify-between max-w-[640px] mx-auto shadow bg-thirdGray flex-col min-[500px]:flex-row"
   >
     <div class="flex flex-col items-start gap-2 p-8">
-      <h1 class="text-2xl font-bold text-firstGray">فروشگاه ایران اسپرت</h1>
+      <h1 class="text-2xl font-bold text-firstGray">{{ data.title }}</h1>
       <p class="text-sm font-normal text-SecondGray">
-        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-        از طراحان گرافیک است.
+        {{ data.text }}
       </p>
       <button
         class="hidden min-[500px]:flex items-center gap-1 px-3 py-1 text-xs rounded bg-firstOrange"
@@ -32,7 +31,7 @@
       </button>
     </div>
     <div class="w-3/4 h-full">
-      <img class="w-full" :src="imageSrc" alt="" />
+      <img class="w-full" :src="data.imageSrc" alt="" />
     </div>
   </div>
 </template>
@@ -40,6 +39,6 @@
 <script>
 export default {
   name: "BlogItem",
-  props: ["imageSrc"],
+  props: ["data"],
 };
 </script>

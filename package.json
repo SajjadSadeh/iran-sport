@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "json-server": "^0.17.3",
     "pinia": "^2.1.6",
     "swiper": "^10.2.0",
     "vue": "^3.3.4",

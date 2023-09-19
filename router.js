@@ -2,10 +2,12 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 import Home from "./src/views/Home.vue";
 import Product from "./src/views/Product.vue";
+import Articles from "./src/views/Articles.vue";
 
 const routes = [
   { path: "/", component: Home, name: "Home" },
   { path: "/product/:id", component: Product, name: "Product" },
+  { path: "/articles", component: Articles, name: "Articles" },
 ];
 
 // 3. Create the router instance and pass the `routes` option
