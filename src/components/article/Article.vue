@@ -46,6 +46,7 @@
 
 <script>
 import ArticleItem from "./ArticleItem.vue";
+
 export default {
   name: "Article",
   components: { ArticleItem },

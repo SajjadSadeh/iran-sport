@@ -5,11 +5,10 @@ export const useSliderStore = defineStore("sliderStore", {
   getters: {},
   actions: {
     async fetchSlider() {
-      await fetch("http://localhost:3000/sliders")
+      await fetch("https://ultra-sincere-fern.glitch.me/sliders")
         .then((res) => res.json())
         .then((data) => {
           this.slider = data;
-          console.log(data);
         });
     },
   },

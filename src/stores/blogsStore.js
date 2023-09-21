@@ -5,10 +5,9 @@ export const useBlogsStore = defineStore("blogsStore", {
   getters: {},
   actions: {
     async fetchBlog() {
-      await fetch("http://localhost:3000/blogs")
+      await fetch("https://ultra-sincere-fern.glitch.me/blogs")
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           this.blogs = data;
         });
     },

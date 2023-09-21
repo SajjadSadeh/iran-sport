@@ -9,7 +9,7 @@ export const useArticlesStore = defineStore("articlesStore", {
   },
   actions: {
     async fetchArticles() {
-      await fetch("http://localhost:3000/articles")
+      await fetch("https://ultra-sincere-fern.glitch.me/articles")
         .then((res) => res.json())
         .then((data) => {
           this.articles = data;

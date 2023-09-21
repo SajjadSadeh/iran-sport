@@ -5,11 +5,10 @@ export const useCategoryStore = defineStore("categoryStore", {
   getters: {},
   actions: {
     async fetchCategory() {
-      await fetch("http://localhost:3000/categories")
+      await fetch("https://ultra-sincere-fern.glitch.me/categories")
         .then((res) => res.json())
         .then((data) => {
           this.category = data;
-          console.log(data);
         });
     },
   },

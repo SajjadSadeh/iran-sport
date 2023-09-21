@@ -14,29 +14,57 @@
         <div><img src="../assets/Logo.svg" alt="" /></div>
       </router-link>
 
-      <div class="flex items-center gap-2 text-sm font-semibold">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-category-2"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M14 4h6v6h-6z"></path>
-          <path d="M4 14h6v6h-6z"></path>
-          <path d="M17 17m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-          <path d="M7 7m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0"></path>
-        </svg>
-        <p>دسته بندی</p>
-      </div>
+      <router-link :to="{ name: 'Home' }">
+        <div class="flex items-center gap-2 text-sm font-medium">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-home"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6"></path>
+          </svg>
+          <p>صفحه اصلی</p>
+        </div>
+      </router-link>
 
-      <div class="flex items-center gap-2 text-sm font-semibold">
+      <router-link :to="{ name: 'Store' }">
+        <div class="flex items-center gap-2 text-sm font-medium">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-building-store"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M3 21l18 0"></path>
+            <path
+              d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"
+            ></path>
+            <path d="M5 21l0 -10.15"></path>
+            <path d="M19 21l0 -10.15"></path>
+            <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"></path>
+          </svg>
+          <p>فروشگاه</p>
+        </div>
+      </router-link>
+
+      <!-- <div class="flex items-center gap-2 text-sm font-medium">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-message-question"
@@ -63,7 +91,7 @@
         <p>سوالات متداول</p>
       </div>
 
-      <div class="flex items-center gap-2 text-sm font-semibold">
+      <div class="flex items-center gap-2 text-sm font-medium">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-square-rounded-check"
@@ -85,7 +113,7 @@
         <p>درباره ما</p>
       </div>
 
-      <div class="flex items-center gap-2 text-sm font-semibold">
+      <div class="flex items-center gap-2 text-sm font-medium">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-phone"
@@ -104,9 +132,10 @@
           ></path>
         </svg>
         <p>تماس با ما</p>
-      </div>
+      </div> -->
+
       <router-link :to="{ name: 'Articles' }">
-        <div class="flex items-center gap-2 text-sm font-semibold">
+        <div class="flex items-center gap-2 text-sm font-medium">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon icon-tabler icon-tabler-news"
@@ -151,26 +180,29 @@
           <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
         </svg>
       </div>
-      <div class="p-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="icon icon-tabler icon-tabler-shopping-cart"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          fill="none"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-          <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
-          <path d="M17 17h-11v-14h-2"></path>
-          <path d="M6 5l14 1l-1 7h-13"></path>
-        </svg>
-      </div>
+      <router-link :to="{ name: 'Basket' }">
+        <div class="p-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-shopping-cart"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+            <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+            <path d="M17 17h-11v-14h-2"></path>
+            <path d="M6 5l14 1l-1 7h-13"></path>
+          </svg>
+        </div>
+      </router-link>
+
       <div class="p-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -300,27 +332,55 @@
           </svg>
           <p>درباره ما</p>
         </div>
-
-        <div class="flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-phone"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path
-              d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"
-            ></path>
-          </svg>
-          <p>تماس با ما</p>
-        </div>
+        <router-link :to="{ name: 'Basket' }">
+          <div class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-shopping-cart"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+              <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
+              <path d="M17 17h-11v-14h-2"></path>
+              <path d="M6 5l14 1l-1 7h-13"></path>
+            </svg>
+            <p>سبد خرید</p>
+          </div>
+        </router-link>
+        <router-link :to="{ name: 'Store' }">
+          <div class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-building-store"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+              <path d="M3 21l18 0"></path>
+              <path
+                d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4"
+              ></path>
+              <path d="M5 21l0 -10.15"></path>
+              <path d="M19 21l0 -10.15"></path>
+              <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4"></path>
+            </svg>
+            <p>فروشگاه</p>
+          </div>
+        </router-link>
 
         <router-link :to="{ name: 'Articles' }">
           <div class="flex items-center gap-2">

@@ -16,7 +16,11 @@
         </p>
       </div>
     </div>
+    <div v-if="loading">
+      <loader />
+    </div>
     <div
+      v-else
       class="flex flex-wrap items-center justify-center gap-1 mt-8 s:justify-between sm:gap-8"
     >
       <template v-for="item in showedProducts" :key="item">
@@ -25,7 +29,7 @@
     </div>
     <div
       @click="numberOfShowProducts += 8"
-      class="flex flex-col items-center justify-center mt-4 cursor-pointer gap1 text-firstGray"
+      class="flex flex-col items-center justify-center mt-1 cursor-pointer gap1 text-firstGray"
     >
       <p>بیشتر</p>
       <svg
@@ -55,12 +59,13 @@
 <script>
 import ShoeCard from "./ShoeCard.vue";
 import { useProductsStore } from "../stores/ProductsStore.js";
-
+import Loader from "./Loader.vue";
 export default {
   name: "ShoesInHomePage",
   data() {
     return {
       filterShoesName: "همه",
+      loading: true,
       shoesCategoty: [
         "همه",
         "کوهنوردی",
@@ -70,20 +75,22 @@ export default {
         "دومیدانی",
       ],
       active: "px-1 rounded-md bg-firstOrange text-firstGray",
-      productStore: null,
+      productStore: useProductsStore(),
       allProducts: [],
       showedProducts: [],
-      numberOfShowProducts: 9,
+      numberOfShowProducts: 8,
     };
   },
   components: {
     ShoeCard,
+    Loader,
   },
   async created() {
-    this.productStore = useProductsStore();
+    this.loading = true;
     await this.productStore.fetchProducts();
     this.allProducts = this.productStore.products;
     this.updataShowedProducts();
+    this.loading = false;
   },
   methods: {
     filterShoes(e) {

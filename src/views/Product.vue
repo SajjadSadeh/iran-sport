@@ -1,10 +1,13 @@
 <template>
-  <div class="container p-1 mx-auto my-16">
+  <div v-if="loading">
+    <Loader />
+  </div>
+  <div class="container p-1 mx-auto my-16" v-else>
     <p class="my-2 text-xs text-SecondGray">
       {{ productInfo.category }} / {{ productInfo.Shoe_Name }}
     </p>
-    <div class="flex flex-col gap-4 sm:flex-row">
-      <div class="w-3/4 mx-auto sm:w-1/4">
+    <div class="flex flex-col gap-4 md:flex-row">
+      <div class="w-3/4 mx-auto md:w-1/4">
         <div class="w-full bg-[#131313] rounded-md">
           <img
             ref="mainPicture"
@@ -34,7 +37,7 @@
       </div>
 
       <div
-        class="w-full p-4 text-base font-bold bg-white rounded-md sm:w-3/4 text-firstGray"
+        class="w-full p-4 text-base font-bold bg-white rounded-md md:w-3/4 text-firstGray"
       >
         <h1
           class="p-1 py-3 mb-3 font-bold border-b-2 border-solid border-blueGray"
@@ -229,7 +232,7 @@
               </svg>
               150 امتیاز ایران اسپرت
             </div>
-
+            <!-- price -->
             <div class="flex items-center justify-between mt-2">
               <p class="flex items-center gap-1">
                 <svg
@@ -251,9 +254,31 @@
                 </svg>
                 قیمت
               </p>
-              <p class="flex">{{ productInfo.Price }} تومان</p>
+              <div class="flex">
+                <div v-if="productInfo.percentOfDiscount === 0">
+                  {{ productInfo.Price.toLocaleString() }} تومان
+                </div>
+                <div v-else>
+                  <p class="text-base">
+                    {{
+                      (
+                        productInfo.Price -
+                        (productInfo.Price * productInfo.percentOfDiscount) /
+                          100
+                      ).toLocaleString()
+                    }}
+                    تومان
+                  </p>
+                  <p class="text-xs text-left line-through text-SecondGray">
+                    {{ productInfo.Price.toLocaleString() }} تومان
+                  </p>
+                </div>
+              </div>
             </div>
+            <!-- price end -->
+
             <button
+              @click="addToBasket"
               class="flex items-center justify-center gap-1 px-4 py-2 mt-6 rounded bg-firstOrange"
             >
               <svg
@@ -281,26 +306,146 @@
         </div>
       </div>
     </div>
+
+    <!-- comments -->
+    <div class="flex flex-col items-start my-20">
+      <div class="flex flex-col items-center justify-center gap-2">
+        <p class="text-xl font-bold text-firstGray">نظرات</p>
+        <p
+          class="text-sm border-b-2 border-solid text-firstGray border-firstOrange"
+        >
+          مشتریان در باره این کالا چه میگونید؟
+        </p>
+      </div>
+
+      <div class="flex flex-col items-center w-full gap-4 p-1 mt-6">
+        <div
+          v-for="item in productInfo.Comments"
+          :key="item"
+          class="w-full px-5 py-2 mx-auto bg-white rounded shadow text-firstGray"
+        >
+          <div class="flex items-center justify-between">
+            <p class="text-xl font-bold">{{ item.Customer_Name }}</p>
+            <div class="flex items-center justify-center gap-1 text-sm">
+              <p class="w-4 text-[#ffd700]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="icon icon-tabler icon-tabler-star-filled"
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <path
+                    d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z"
+                    stroke-width="0"
+                    fill="currentColor"
+                  ></path>
+                </svg>
+              </p>
+              <p>
+                {{ item.Rating }}
+              </p>
+            </div>
+          </div>
+          <p>{{ item.Review }}</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col w-full gap-8 p-1 mt-6 sm:flex-row">
+        <input
+          ref="commentInput"
+          type="text"
+          placeholder="نظر خود را درباره این محصول با ما به اشتراک بگزارید"
+          class="w-full px-2 py-2 text-xs bg-white shadow-sm sm:w-4/5 text-firstGray rounded-xl sm:text-base"
+        />
+        <button
+          @click="
+            productInfo.Comments.push({
+              Review: $refs.commentInput.value,
+              Rating: 3,
+              Customer_Name: 'سجاد',
+            });
+            $refs.commentInput.value = '';
+          "
+          class="w-1/3 px-4 py-2 shadow-sm sm:w-1/5 text-firstGray bg-firstOrange rounded-xl"
+        >
+          ارسال نظر
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import { useProductsStore } from "../stores/ProductsStore.js";
+import { useBasketStore } from "../stores/BasketStore";
+import Loader from "../components/Loader.vue";
+import Swal from "sweetalert2";
 export default {
   name: "Product",
   data() {
     return {
+      loading: true,
       productsStore: useProductsStore(),
+      basketStore: useBasketStore(),
       productInfo: null,
-      productID: this.$route.params.id,
       chosedColor: null,
       chosedSize: null,
     };
   },
-
+  components: { Loader },
+  watch: {
+    $route: {
+      handler() {
+        this.getNewInfo();
+      },
+    },
+  },
+  methods: {
+    getNewInfo() {
+      this.productInfo = this.productsStore.getProductByID(
+        this.$route.params.id
+      );
+      this.chosedColor = this.productInfo.Shoe_Colors[0];
+      this.chosedSize = this.productInfo.Shoe_Sizes[0];
+    },
+    addToBasket() {
+      this.basketStore.addNewItem({
+        ...this.productInfo,
+        chosedColor: this.chosedColor,
+        chosedSize: this.chosedSize,
+        count: 1,
+      });
+      // alert
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "bottom-end",
+        showConfirmButton: false,
+        timer: 2500,
+        timerProgressBar: true,
+        background: "#FFBD5C",
+        color: "#2E353C",
+        iconColor: "white",
+      });
+      Toast.fire({
+        icon: "success",
+        title: "با موفقیت اضافه شد",
+      });
+      // alert end
+    },
+  },
   async created() {
+    this.loading = true;
     await this.productsStore.fetchProducts();
-    this.productInfo = this.productsStore.getProductByID(this.productID);
+    this.getNewInfo();
+    this.loading = false;
+
     window.scrollTo(0, 0);
   },
 };
