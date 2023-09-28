@@ -3,7 +3,10 @@
     class="container flex flex-wrap items-center justify-between w-full gap-6 p-1 mx-auto my-16"
   >
     <template v-for="item in blogStore.blogs" :key="item.id">
-      <BlogItem :data="item" />
+      <BlogItem
+        :data-aos="item.id % 2 === 0 ? 'zoom-in-left' : 'zoom-in-right'"
+        :data="item"
+      />
     </template>
   </div>
 </template>

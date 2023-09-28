@@ -8,7 +8,9 @@
         <p class="text-2xl font-bold text-center text-firstGray">
           سبد خرید خالی است
         </p>
-        <div class="w-2/3 text-firstOrange rotate-6">
+        <div
+          class="w-2/3 text-firstOrange rotate-6 animate__animated animate__wobble"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="icon icon-tabler icon-tabler-basket-x"
@@ -33,6 +35,8 @@
           </svg>
         </div>
       </div>
+
+      <!-- items -->
       <template v-else>
         <p
           class="px-8 py-2 mt-6 text-xl font-bold border-b-2 border-solid border-firstOrange"
@@ -43,6 +47,7 @@
           class="px-4 py-2 bg-white rounded shadow w-full max-w-[800px] flex flex-col gap-4"
           v-for="item in basketStore.basketItems"
           :key="item.ID"
+          style="animation-duration: 1250ms"
         >
           <div class="flex items-center w-full">
             <div class="bg-[#131313] max-w-[130px] rounded-md">
@@ -55,7 +60,7 @@
                 <li class="relative flex items-center gap-1">
                   رنگ :
                   <div
-                    class="w-5 h-3 rounded-md"
+                    class="w-5 h-3 rounded-md shadow"
                     :style="{ backgroundColor: item.chosedColor }"
                   ></div>
                 </li>
@@ -85,7 +90,7 @@
                 </p>
               </div>
             </div>
-            <!-- price end -->
+            <!-- amount and + - -->
             <div class="flex items-center p-1 rounded-md bg-thirdGray">
               <button
                 class="p-1 text-2xl bg-white rounded-md"
@@ -103,13 +108,18 @@
                 -
               </button>
             </div>
-            <div class="text-red-600 cursor-pointer" @click="removeItem(item)">
+
+            <div
+              class="w-6 text-red-600 cursor-pointer"
+              @click.stop="console.log(1)"
+            >
               <!-- trash icon -->
               <svg
+                @click.stop="removeItem(item)"
                 xmlns="http://www.w3.org/2000/svg"
                 class="icon icon-tabler icon-tabler-trash-x-filled"
-                width="24"
-                height="24"
+                width="100%"
+                height="100%"
                 viewBox="0 0 24 24"
                 stroke-width="2"
                 stroke="currentColor"
@@ -194,12 +204,22 @@ export default {
     return {
       basketStore: useBasketStore(),
       basketItems: null,
+      el: null,
     };
   },
   methods: {
     removeItem(item) {
-      this.basketStore.removeProductOfBasket(item);
-      this.basketItems = this.basketStore.basketItems;
+      this.el = event.target.parentElement.parentElement.parentElement;
+      event.target.tagName === "path"
+        ? (this.el = this.el.parentElement)
+        : null;
+      this.el.classList.add("animate__animated");
+      this.el.classList.add("animate__hinge");
+      this.el.addEventListener("animationend", (event) => {
+        this.basketStore.removeProductOfBasket(item);
+        this.basketItems = this.basketStore.basketItems;
+        this.basketItems[0] ? null : window.scrollTo(0, 0);
+      });
       // alert
       const Toast = Swal.mixin({
         toast: true,

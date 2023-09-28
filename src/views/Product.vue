@@ -16,7 +16,11 @@
             alt=""
           />
         </div>
-        <div class="flex items-center w-full py-1">
+
+        <!-- images -->
+        <div
+          class="flex items-center w-full py-1 animate__animated animate__fadeInDown"
+        >
           <div class="bg-[#131313] rounded-md h-full cursor-pointer w-full">
             <img
               @click="$refs.mainPicture.src = productInfo.Shoe_Main_Image"
@@ -40,12 +44,13 @@
         class="w-full p-4 text-base font-bold bg-white rounded-md md:w-3/4 text-firstGray"
       >
         <h1
-          class="p-1 py-3 mb-3 font-bold border-b-2 border-solid border-blueGray"
+          class="p-1 py-3 mb-3 font-bold border-b-2 border-solid animate__animated animate__slideInLeft border-blueGray"
         >
           {{ productInfo.Shoe_Name }}
         </h1>
         <div class="flex flex-col gap-2 md:flex-row">
-          <div class="w-full md:w-3/5">
+          <div class="w-full md:w-3/5 animate__slideInLeft animate__animated">
+            <!-- colors -->
             <div class="flex flex-col gap-4 my-6">
               <p class="text-lg font-bold">رنگ ها :</p>
               <div class="flex gap-1">
@@ -77,6 +82,7 @@
               </div>
             </div>
 
+            <!-- sizes -->
             <div class="flex flex-col gap-4 my-6">
               <p class="text-lg font-bold">سایز ها :</p>
               <div class="flex gap-1">
@@ -92,6 +98,7 @@
               </div>
             </div>
 
+            <!-- Attributes -->
             <div class="flex flex-col gap-4 my-6">
               <p class="text-lg font-bold">ویژگی ها :</p>
               <div class="flex flex-col gap-1">
@@ -117,11 +124,13 @@
             </div>
           </div>
 
+          <!-- seller and price and other attributes -->
           <div
-            class="flex flex-col w-full gap-1 px-6 py-4 mt-5 text-sm font-medium rounded shadow-lg md:w-2/5"
+            class="flex flex-col w-full gap-1 px-6 py-4 mt-5 text-sm font-medium rounded shadow-lg animate__animated animate__flipInX md:w-2/5"
           >
             <h1 class="text-xl font-bold text-firstGray">فروشنده</h1>
 
+            <!-- Customer_Satisfaction_Rating -->
             <div
               class="border-b-[1px] border-solid border-blueGray py-3 flex justify-between items-center"
             >
@@ -232,6 +241,7 @@
               </svg>
               150 امتیاز ایران اسپرت
             </div>
+
             <!-- price -->
             <div class="flex items-center justify-between mt-2">
               <p class="flex items-center gap-1">
@@ -275,11 +285,10 @@
                 </div>
               </div>
             </div>
-            <!-- price end -->
 
             <button
               @click="addToBasket"
-              class="flex items-center justify-center gap-1 px-4 py-2 mt-6 rounded bg-firstOrange"
+              class="flex items-center justify-center gap-1 px-4 py-2 mt-6 transition-all border-2 rounded border-firstOrange hover:bg-white hover:text-firstOrange bg-firstOrange"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

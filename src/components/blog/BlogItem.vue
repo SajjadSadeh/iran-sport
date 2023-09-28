@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-end w-3/4 min-[500px]:w-auto rounded justify-between max-w-[640px] mx-auto shadow bg-thirdGray flex-col min-[500px]:flex-row"
+    class="flex items-end w-full min-[500px]:w-auto rounded justify-between max-w-[640px] mx-auto shadow bg-thirdGray flex-col min-[500px]:flex-row"
   >
     <div class="flex flex-col items-start gap-2 p-8">
       <h1 class="text-2xl font-bold text-firstGray">{{ data.title }}</h1>

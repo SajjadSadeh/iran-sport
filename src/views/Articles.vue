@@ -2,20 +2,24 @@
   <div>
     <div v-if="loading" class="my-16">
       <Loader />
+      طزری
     </div>
     <template v-else>
-      <Article :articles="articlesStore.articles" />
+      <ArticleContainer
+        :articles="articlesStore.articles"
+        class="animate__animated animate__backInDown"
+      />
     </template>
   </div>
 </template>
 
 <script>
-import Article from "../components/article/Article.vue";
+import ArticleContainer from "../components/article/ArticleContainer.vue";
 import { useArticlesStore } from "../stores/ArticlesStore";
 import Loader from "../components/Loader.vue";
 export default {
   name: "Articles",
-  components: { Article, Loader },
+  components: { ArticleContainer, Loader },
   data() {
     return {
       articlesStore: useArticlesStore(),

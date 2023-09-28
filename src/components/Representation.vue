@@ -1,6 +1,7 @@
 <template>
   <div
     class="container flex flex-col items-center justify-between gap-6 p-1 px-6 py-4 mx-auto my-16 bg-white shadow sm:flex-row"
+    data-aos="flip-down"
   >
     <div id="title" class="relative text-firstGray">
       <h1 class="text-xl font-bold">اعطای نمایندگی</h1>

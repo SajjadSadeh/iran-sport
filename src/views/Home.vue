@@ -15,7 +15,7 @@
     <Brands />
   </div>
   <div>
-    <Article :articles="articlesStore.articleForHome" />
+    <ArticleContainer :articles="articlesStore.articleForHome" />
   </div>
   <div>
     <Representation />
@@ -28,7 +28,7 @@ import Category from ".././components/Category.vue";
 import ShoesInhomePage from "../components/ShoesInhomePage.vue";
 import Blog from ".././components/blog/Blog.vue";
 import Brands from ".././components/Brands.vue";
-import Article from "../components/article/Article.vue";
+import ArticleContainer from "../components/article/ArticleContainer.vue";
 import Representation from "../components/Representation.vue";
 
 import { useArticlesStore } from "../stores/ArticlesStore";
@@ -49,7 +49,7 @@ export default {
     ShoesInhomePage,
     Blog,
     Brands,
-    Article,
+    ArticleContainer,
     Representation,
   },
 };

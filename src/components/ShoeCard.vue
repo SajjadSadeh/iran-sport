@@ -1,12 +1,11 @@
 <template>
   <div
-    style="width: clamp(250px, 20vw, 330px)"
-    class="flex flex-col items-center justify-between gap-2 px-4 py-2 mb-10 text-center bg-white rounded shadow"
+    class="flex w-[200px] lg:w-[250px] flex-col items-center justify-between gap-2 px-4 py-2 mb-10 text-center bg-white rounded shadow"
   >
     <!-- {{ data}} -->
     <img class="w-3/4" :src="data.Shoe_Main_Image" alt="" />
-    <router-link :to="'/product/' + data.ID">
-      <p class="text-base font-semibold md:text-base text-firstGray">
+    <router-link :to="'store/product/' + data.ID">
+      <p class="text-sm font-semibold md:text-base text-firstGray">
         {{ data.Shoe_Name }}
       </p>
     </router-link>
@@ -16,11 +15,13 @@
       class="flex items-center gap-3 sm:flex-col sm:gap-0"
       v-if="data.percentOfDiscount === 0"
     >
-      <p class="text-firstOrange">{{ data.Price.toLocaleString() }} تومان</p>
+      <p class="text-sm text-firstOrange sm:text-base">
+        {{ data.Price.toLocaleString() }} تومان
+      </p>
       <p class="text-sm line-through opacity-0 text-SecondGray">.....</p>
     </div>
     <div class="flex items-center gap-3 sm:flex-col sm:gap-0" v-else>
-      <p class="text-firstOrange">
+      <p class="text-sm text-firstOrange sm:text-base">
         {{
           (
             data.Price -
@@ -29,7 +30,7 @@
         }}
         تومان
       </p>
-      <p class="text-sm line-through text-SecondGray">
+      <p class="text-xs line-through sm:text-sm text-SecondGray">
         {{ data.Price.toLocaleString() }} تومان
       </p>
     </div>
@@ -49,7 +50,7 @@
       </button>
       <button
         @click="addToBasket"
-        class="hidden px-2 py-1 text-black transition-all rounded hover:px-8 bg-firstOrange md:flex"
+        class="hidden px-4 py-1 text-black transition-all rounded hover:px-8 bg-firstOrange md:flex"
       >
         + افزودن
       </button>

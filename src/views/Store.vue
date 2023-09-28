@@ -1,10 +1,10 @@
 <template>
   <div
-    class="container flex flex-col items-start justify-between mx-auto my-16 lg:flex-row"
+    class="container flex flex-col items-start justify-between mx-auto my-16 xl:flex-row"
   >
     <!-- filter section -->
     <div
-      class="flex lg:sticky mb-2 rounded ml-2 lg:top-16 lg:flex-col flex-col min-[350px]:flex-row w-full items-start justify-center lg:w-[250px] gap-4 p-1 bg-white shadow text-firstGray"
+      class="flex xl:sticky mb-2 rounded ml-2 xl:ml-20 xl:top-0 xl:flex-col flex-col min-[350px]:flex-row w-full items-start justify-center xl:w-[250px] gap-4 p-1 bg-white shadow text-firstGray"
     >
       <p class="font-bold">فیلترها</p>
 
@@ -107,12 +107,12 @@
         </div>
       </div>
     </div>
-    <!-- filter section ends -->
 
     <!-- products section -->
-    <div class="w-full max-w-[1000px]">
+    <div class="w-full">
+      <!-- sort by -->
       <div
-        class="flex flex-wrap items-center justify-center gap-2 p-1 text-sm font-semibold bg-white rounded sm:justify-between"
+        class="flex flex-wrap items-center justify-center gap-2 p-1 text-sm font-semibold bg-white rounded animate__animated animate__slideInLeft sm:justify-between"
       >
         <p class="flex items-center gap-1">
           <svg
@@ -155,10 +155,10 @@
       </div>
       <div
         v-else
-        class="flex flex-wrap items-center justify-center gap-1 mt-8 s:justify-between sm:gap-8"
+        class="flex flex-wrap items-center justify-center gap-1 px-1 mt-8 sm:justify-between sm:gap-8"
       >
         <template v-for="item in filteredProducts" :key="item.ID">
-          <ShoeCard :data="item" />
+          <ShoeCard :data="item" class="animate__animated animate__swing" />
         </template>
       </div>
     </div>
@@ -202,16 +202,21 @@ export default {
   },
   methods: {
     choseCategory(selected) {
+      this.loading = true;
       this.filteredProducts = this.productStore.getByCategory(selected);
       this.filteredProducts[0]
         ? null
         : (this.filteredProducts = this.productStore.products);
+      this.loading = false;
     },
     choseBySort(selected) {
+      this.loading = true;
+
       this.filterBySorting = this.productStore.getSortBy(
         selected,
         this.filteredProducts
       );
+      this.loading = false;
     },
     // sortByPrice() {
     //   // clearInterval(this.x);
@@ -243,10 +248,5 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
 }
 </style>

@@ -47,6 +47,7 @@ export const useBasketStore = defineStore("basketStore", {
       this.setBasketItemsToLocalStorage();
     },
     removeProductOfBasket(item) {
+      console.log(item);
       this.basketItems = this.basketItems.filter((p) => p !== item);
       this.setBasketItemsToLocalStorage();
     },
@@ -55,7 +56,9 @@ export const useBasketStore = defineStore("basketStore", {
       localStorage.setItem("basketItems", JSON.stringify(this.basketItems));
     },
     getLocalStorageValue() {
-      this.basketItems = JSON.parse(localStorage.getItem("basketItems"));
+      JSON.parse(localStorage.getItem("basketItems"))
+        ? (this.basketItems = JSON.parse(localStorage.getItem("basketItems")))
+        : (this.basketItems = []);
     },
   },
 });

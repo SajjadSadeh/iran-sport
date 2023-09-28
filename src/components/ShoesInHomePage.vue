@@ -1,7 +1,9 @@
 <template>
   <div class="container p-1 mx-auto my-16">
     <div class="flex flex-col items-center justify-between gap-3 sm:flex-row">
-      <h1 class="">کفش های ایران اسپرت</h1>
+      <h1 class="text-xl font-bold text-right text-firstGray">
+        کفش های ایران اسپرت
+      </h1>
       <div
         ref="filterContainer"
         class="flex items-center justify-center gap-2 text-[14px] text-SecondGray cursor-pointer"
@@ -21,7 +23,7 @@
     </div>
     <div
       v-else
-      class="flex flex-wrap items-center justify-center gap-1 mt-8 s:justify-between sm:gap-8"
+      class="flex flex-wrap items-center justify-center gap-1 mt-8 md:justify-between sm:gap-8"
     >
       <template v-for="item in showedProducts" :key="item">
         <ShoeCard :data="item"
@@ -78,7 +80,7 @@ export default {
       productStore: useProductsStore(),
       allProducts: [],
       showedProducts: [],
-      numberOfShowProducts: 8,
+      numberOfShowProducts: 10,
     };
   },
   components: {

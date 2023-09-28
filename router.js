@@ -8,7 +8,7 @@ import Store from "./src/views/Store.vue";
 import NotFound from "./src/views/NotFound.vue";
 const routes = [
   { path: "/", component: Home, name: "Home" },
-  { path: "/product/:id", component: Product, name: "Product" },
+  { path: "/store/product/:id", component: Product, name: "Product" },
   { path: "/articles", component: Articles, name: "Articles" },
   { path: "/basket", component: Basket, name: "Basket" },
   { path: "/store", component: Store, name: "Store" },

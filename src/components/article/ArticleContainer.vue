@@ -48,7 +48,7 @@
 import ArticleItem from "./ArticleItem.vue";
 
 export default {
-  name: "Article",
+  name: "ArticleContainer",
   components: { ArticleItem },
   props: ["articles"],
   data() {

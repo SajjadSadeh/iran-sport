@@ -1,8 +1,8 @@
 <template>
-  <div class="container mx-auto my-16">
+  <div class="container mx-auto my-16" data-aos="flip-left">
     <h1 class="mb-8 text-xl font-bold text-center">محصولات ایران اسپرت</h1>
     <swiper
-      :slidesPerView="3"
+      :slidesPerView="4"
       :spaceBetween="10"
       :freeMode="true"
       :modules="modules"

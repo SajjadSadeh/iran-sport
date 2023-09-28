@@ -1,12 +1,20 @@
 <template>
   <div class="container p-1 mx-auto my-16">
-    <h1 class="text-xl font-bold text-center text-firstGray">
+    <h1
+      class="text-xl font-bold text-center text-firstGray"
+      data-aos="zoom-out-right"
+    >
       محبوب ترین برندها
     </h1>
     <div
       class="flex justify-around gap-6 mt-4 item4-center max-w-[750px] mx-auto"
     >
-      <div class="w-1/5 max-w-[100px]" v-for="src in brandLogos" :key="src">
+      <div
+        class="w-1/5 max-w-[100px]"
+        v-for="src in brandLogos"
+        :key="src"
+        data-aos="zoom-out-down"
+      >
         <img class="w-full" :src="src" alt="" />
       </div>
     </div>

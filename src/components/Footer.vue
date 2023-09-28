@@ -5,9 +5,18 @@
         class="container flex flex-wrap items-center justify-center gap-8 py-4 mx-auto mb-20"
       >
         <div
-          v-for="item in AdvantagesItems"
-          :key="item.text"
+          v-for="(item, index) in AdvantagesItems"
+          :key="index"
           class="flex flex-col items-center gap-4 max-w-[160px] w-full"
+          :data-aos="
+            index < 2
+              ? 'fade-left'
+              : index === 2
+              ? 'fade-down'
+              : index > 2
+              ? 'fade-right'
+              : ''
+          "
         >
           <div v-html="item.svg" class="w-14 h-14 text-secondOrange"></div>
           <p class="text-center text-firstGray">{{ item.text }}</p>

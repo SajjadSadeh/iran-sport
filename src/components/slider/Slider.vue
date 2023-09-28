@@ -1,10 +1,15 @@
 <template>
-  <div class="container p-1 mx-auto my-16">
+  <div class="container p-1 mx-auto my-16" data-aos="fade-left">
     <swiper
       effect="Creative"
       :pagination="true"
       :modules="modules"
-      class="mySwiper"
+      class="mySwiper rounded-2xl"
+      :loop="true"
+      :autoplay="{
+        delay: 3000,
+        disableOnInteraction: false,
+      }"
     >
       <template v-for="item in sliderStore.slider" :key="item.id">
         <swiper-slide>
@@ -22,15 +27,14 @@ import SliderItem from "./SliderItem.vue";
 import "swiper/css";
 
 import "swiper/css/pagination";
-
 // import required modules
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { useSliderStore } from "../../stores/SlidersStore";
 export default {
   data() {
     return {
       sliderStore: useSliderStore(),
-      modules: [Pagination],
+      modules: [Pagination, Autoplay],
     };
   },
   created() {
