@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <div v-if="loading" class="my-16">
-      <Loader />
-      طزری
-    </div>
-    <template v-else>
-      <ArticleContainer
-        :articles="articlesStore.articles"
-        class="animate__animated animate__backInDown"
-      />
-    </template>
+  <div v-if="loading" class="my-16">
+    <Loader />
+    طزری
+  </div>
+  <div v-else>
+    <ArticleContainer
+      :articles="articlesStore.articles"
+      class="animate__animated animate__backInDown"
+    />
   </div>
 </template>
 
@@ -27,7 +25,6 @@ export default {
     };
   },
   created() {
-    this.loading = true;
     this.articlesStore.fetchArticles();
     this.loading = false;
     window.scrollTo(0, 0);
