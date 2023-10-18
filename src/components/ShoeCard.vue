@@ -44,7 +44,7 @@
       </p>
       <button
         @click="addToBasket"
-        class="w-8 h-8 text-3xl text-center rounded-full bg-firstOrange md:hidden"
+        class="flex items-center justify-center w-8 h-8 text-3xl rounded-full bg-firstOrange md:hidden"
       >
         +
       </button>
